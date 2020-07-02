@@ -1,43 +1,55 @@
 <template>
-  <div id="app">
-    <v-app class="appBar">
+  <v-app id="inspire">
+    
+    <side-bar :drawer="drawer"></side-bar>
     <v-app-bar
+      :clipped-left="$vuetify.breakpoint.lgAndUp"
       app
-      color="primary"
+      color="blue darken-3"
       dark
     >
-      <div class="d-flex align-center">
-        <h2>NewsPaper</h2>
-      </div>
-
-      <v-spacer></v-spacer>
-
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+      <v-toolbar-title
+        style="width: 300px"
+        class="ml-0 pl-4"
       >
-        <span class="mr-2">Latest News</span>
-        <v-icon>mdi-open-in-new</v-icon>
+        <span class="hidden-sm-and-down">NewsPaper</span>
+      </v-toolbar-title>
+      <v-text-field
+        flat
+        solo-inverted
+        hide-details
+        prepend-inner-icon="mdi-magnify"
+        label="Search"
+        class="hidden-sm-and-down"
+      ></v-text-field>
+      <v-spacer></v-spacer>
+      <v-btn icon>
+        <v-icon>mdi-apps</v-icon>
+      </v-btn>
+      <v-btn icon>
+        <v-icon>mdi-bell</v-icon>
       </v-btn>
     </v-app-bar>
-        <div class="appBar">
+    <v-main>
+      <v-container
+      >
           <router-view></router-view>
-        </div>
+      </v-container>
+    </v-main>
   </v-app>
-  </div>
 </template>
 
 <script>
+import SideBar from './components/layouts/SideBar'
+
 export default {
-  name: 'App'
-};
+  name: 'App',
+  components: {
+    SideBar
+  },
+  data: () => ({
+    drawer: false
+  })
+}
 </script>
-<style scoped>
-*{
-  background-color: #EEE;
-}
-.appBar{
-  margin-top: 40px;
-}
-</style>

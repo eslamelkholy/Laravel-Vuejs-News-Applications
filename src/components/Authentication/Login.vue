@@ -1,8 +1,22 @@
 <template>
-  <v-app>
-    <v-card width="400" class="mx-auto">
+<v-app>
+      <v-container
+        class="fill-height"
+        fluid
+      >
+        <v-row
+          align="center"
+          justify="center"
+          class="loginForm"
+        >
+          <v-col
+            cols="12"
+            sm="8"
+            md="6"
+          >
+      <v-card  width="500" class="mx-auto">
       <v-card-title class="pb-0">
-        <h1>Login</h1>
+        <h2>Login</h2>
       </v-card-title>
       <v-card-text>
         <v-form>
@@ -25,6 +39,9 @@
         <v-btn color="info">Login</v-btn>
       </v-card-actions>
     </v-card>
+    </v-col>
+    </v-row>
+      </v-container>
   </v-app>
 </template>
 
@@ -38,3 +55,10 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.loginForm{
+  margin-top: -200px;
+  width: 100%;
+}
+</style>
