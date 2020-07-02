@@ -34,6 +34,9 @@ export default {
 };
 </script>
 <style scoped>
+*{
+  background-color: #EEE;
+}
 .appBar{
   margin-top: 40px;
 }
