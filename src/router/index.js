@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HomePage from '@/components/HomePage/HomePage'
-import Login from '@/components/Authentication/Login'
-import Register from '@/components/Authentication/Register'
-import Logout from '@/components/Authentication/Logout'
+import HomePage from '../components/Home/HomePage'
+import Login from '../components/Authentication/Login'
+import Register from '../components/Authentication/Register'
+import Logout from '../components/Authentication/Logout'
 
 Vue.use(Router)
 
