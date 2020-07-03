@@ -23,7 +23,7 @@
             link
           >
             <v-list-item-action>
-              <v-icon>{{ item.icon }}</v-icon>
+              <v-icon large color="blue darken-2">{{ item.icon }}</v-icon>
             </v-list-item-action>
             <v-list-item-content>
               <v-list-item-title>
@@ -42,7 +42,11 @@ export default {
   data: () => ({
     items: [
       { icon: 'mdi-home', text: 'Home' },
-      { icon: 'mdi-star', text: 'Favorites' }
+      { icon: 'mdi-star', text: 'Favorites' },
+      { icon: 'mdi-help', text: 'About' },
+      { icon: 'mdi-login', text: 'Login' },
+      { icon: 'mdi-account-circle', text: 'Register' },
+      { icon: 'mdi-lock-open', text: 'Signout' },
     ]
   }),
   props: {

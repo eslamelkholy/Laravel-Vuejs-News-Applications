@@ -1,12 +1,19 @@
 <template>
-  <div>
-    <h1>HomePage</h1>
-  <h1>HomePage</h1>
-  </div>
+<div>
+  <top-news></top-news>
+  <more-news></more-news>
+</div>
 </template>
 
 <script>
-export default {
-  name: 'HomePage'
-}
+  import TopNews from './TopNews'
+  import MoreNews from './MoreNews'
+
+  export default {
+    name: 'home-page',
+    components: {
+      TopNews,
+      MoreNews
+    }
+  }
 </script>
