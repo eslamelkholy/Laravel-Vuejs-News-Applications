@@ -5,10 +5,11 @@ import Register from '../components/Authentication/Register'
 import Logout from '../components/Authentication/Logout'
 import HomePage from '../components/Home/HomePage'
 import Favorites from '../components/Favorites/Favorites'
+import routeGuard from './RouteGuard'
 
 Vue.use(Router)
 
-export default new Router({
+const router =  new Router({
   mode: 'history',
   routes: [
     {
@@ -16,7 +17,7 @@ export default new Router({
       component: HomePage,
       name: 'home-page',
       meta: {
-        requiresVisitor: true
+        requiresAuth: true
       },
       props: true
     },
@@ -25,7 +26,7 @@ export default new Router({
       component: Favorites,
       name: 'favorites',
       meta: {
-        requiresVisitor: true
+        requiresAuth: true
       }
     },
     {
@@ -47,7 +48,14 @@ export default new Router({
     {
       path: '/logout',
       component: Logout,
-      name: 'logout'
+      name: 'logout',
+      meta: {
+        requiresAuth: true
+      }
     }
   ]
 })
+
+router.beforeEach(routeGuard)
+
+export default router

@@ -1,6 +1,6 @@
 <template>
   <v-container class="moreNewsContainer">
-    <h2>Explore More</h2>
+    <h2>Explore More News</h2>
     <v-row>
       <v-col
         v-for="n in 8"

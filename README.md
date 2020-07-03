@@ -13,13 +13,16 @@ This Project Related to News Web Application Where User can Browse top headlines
   - Task Scheduling (Cron Jobs) To Automate Fetching News At Back-end
   
 # Features
-  - Automate Fetching Latest News
+  - Automate Fetching Latest News ( Task Scheduling )
   - Vuex For State Management Over the Application
-  - Application Testing
-  - Authentication With Passport
+  - Responsive Website
+  - Authentication With Passport & Veux
   - Browse top headlines about business and sports in Egypt
   - Add/Remove Favorites News
+  - Browse User Favorites Easily
   - Send Mail With auto generated Password When User Register
+  - Route Guards
+  - Application Testing
   
 # Project Workflow
   - Not Finished Yet

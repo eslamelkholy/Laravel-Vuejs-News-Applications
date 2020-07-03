@@ -19,7 +19,7 @@
         <h2>Login</h2>
       </v-card-title>
       <v-card-text>
-        <v-form>
+        <v-form @submit.prevent="login" id="check-login-form">
           <v-text-field 
             label="Email" 
             prepend-icon="mdi-account-circle"
@@ -39,8 +39,15 @@
       <v-divider></v-divider>
       <v-card-actions>
         <v-btn color="success">Register</v-btn>
-        <v-btn color="info">Login</v-btn>
+        <v-btn type="submit" color="primary" form="check-login-form" @click="login">
+          Login <v-progress-circular v-if="loading" indeterminate></v-progress-circular>
+        </v-btn>
       </v-card-actions>
+      <v-alert close-icon='$cancel' v-if="serverErrors.length !== 0" dense type="error">
+      <ul>
+        <li v-for="(value, key) in serverErrors" :key="key">{{ value[0] }}</li>
+      </ul>
+    </v-alert>
     </v-card>
     </v-col>
     </v-row>
@@ -55,7 +62,7 @@ export default {
     return {
       email: '',
       password: '',
-      serverError: '',
+      serverErrors: '',
       loading: false,
       showPassword: false
     }
@@ -65,9 +72,9 @@ export default {
       this.loading = true
       try {
         await this.$store.dispatch('loginUser', { email: this.email, password: this.password })
-        this.$router.push({ name: 'todo' }).catch(() => {})
+        this.$router.push({ name: 'home-page' }).catch(() => {})
       } catch (err) {
-        this.serverError = err.response.data
+        this.serverErrors = Object.values(err.response.data.errors)
         this.password = ''
       }
       this.loading = false
