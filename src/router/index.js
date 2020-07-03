@@ -17,7 +17,8 @@ export default new Router({
       name: 'home-page',
       meta: {
         requiresVisitor: true
-      }
+      },
+      props: true
     },
     {
       path: '/favorites',

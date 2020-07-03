@@ -21,6 +21,7 @@
             v-else
             :key="item.text"
             link
+            @click.stop="RouteUser(item.routeName)"
           >
             <v-list-item-action>
               <v-icon large color="blue darken-2">{{ item.icon }}</v-icon>
@@ -41,18 +42,23 @@ export default {
   name: 'side-bar',
   data: () => ({
     items: [
-      { icon: 'mdi-home', text: 'Home' },
-      { icon: 'mdi-star', text: 'Favorites' },
-      { icon: 'mdi-help', text: 'About' },
-      { icon: 'mdi-login', text: 'Login' },
-      { icon: 'mdi-account-circle', text: 'Register' },
-      { icon: 'mdi-lock-open', text: 'Signout' },
+      { icon: 'mdi-home', text: 'Home', routeName: 'home-page' },
+      { icon: 'mdi-star', text: 'Favorites', routeName: 'favorites' },
+      { icon: 'mdi-help', text: 'About', routeName: 'about' },
+      { icon: 'mdi-login', text: 'Login', routeName: 'login' },
+      { icon: 'mdi-account-circle', text: 'Register', routeName: 'register' },
+      { icon: 'mdi-lock-open', text: 'Logout', routeName: 'logout' },
     ]
   }),
   props: {
     drawer: {
       type: Boolean,
       required: true
+    }
+  },
+  methods: {
+    RouteUser (routeName) {
+      this.$router.push({ name: routeName }).catch(() => {})
     }
   }
 }

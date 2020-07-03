@@ -1,7 +1,7 @@
 <template>
   <v-snackbar
       v-model="openSnackBar"
-      :timeout="4000"
+      :timeout="7000"
       absolute
       right
       shaped

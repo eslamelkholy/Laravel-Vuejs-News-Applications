@@ -21,12 +21,15 @@
       <v-card-text>
         <v-form>
           <v-text-field 
-            label="Username" 
+            label="Email" 
             prepend-icon="mdi-account-circle"
+            v-model="email"
           />
           <v-text-field 
             :type="showPassword ? 'text' : 'password'" 
             label="Password"
+            name="password"
+            v-model="password"
             prepend-icon="mdi-lock"
             :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
             @click:append="showPassword = !showPassword"
@@ -50,7 +53,24 @@ export default {
   name: 'Login',
   data () {
     return {
+      email: '',
+      password: '',
+      serverError: '',
+      loading: false,
       showPassword: false
+    }
+  },
+  methods: {
+    async login () {
+      this.loading = true
+      try {
+        await this.$store.dispatch('loginUser', { email: this.email, password: this.password })
+        this.$router.push({ name: 'todo' }).catch(() => {})
+      } catch (err) {
+        this.serverError = err.response.data
+        this.password = ''
+      }
+      this.loading = false
     }
   }
 }
