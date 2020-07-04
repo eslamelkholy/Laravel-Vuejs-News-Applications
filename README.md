@@ -25,7 +25,7 @@ This Project Related to News Web Application Where User can Browse top headlines
   - Application Testing
   
 # Project Workflow
-  ## Back-End
+  ### - Back-End
    - Setting up Database Migration
   - Start Creating Model And Controller
   - Create Apis & Request Validation
@@ -34,7 +34,7 @@ This Project Related to News Web Application Where User can Browse top headlines
   - Configure Send Mail Service Where User Register
   - Communicate With External Api Using Guzzle
   - Automate Fetching Latest News With Laravel Task Scheduling (Cron Jobs)
-  ## Front-End
+  ### - Front-End
   - Start Create Front-end UI with Veutify-ui
   - Start Setup Vuex Modules ( Handle State Management Over Application )
   - Finished Authentication Senario With Token
@@ -46,10 +46,10 @@ This Project Related to News Web Application Where User can Browse top headlines
   - Fetching Top-headlines in Egypt From Back-end
   - Makes Add/Remove News Favorites Component To Reusable it in Several Places
   - Creating User Favorites Component
-  ## Testing
+  ### - Testing
   - Start Writing Tests
   - Test Best & Worst Cases Scenarios
-  ## Deploy With Docker
+  ### - Deploy With Docker
   - Working On It
   
 # Project Pictures
