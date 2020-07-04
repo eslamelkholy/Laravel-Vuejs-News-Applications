@@ -32,7 +32,6 @@ export default {
   },
   computed: {
     News () {
-      console.log(this.$store.getters.getNews)
       return this.$store.getters.getNews
     }
   }

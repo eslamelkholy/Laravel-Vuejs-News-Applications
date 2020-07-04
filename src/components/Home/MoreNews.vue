@@ -11,7 +11,7 @@
           class="pa-2 cardContainer"
         >
           <v-img
-      :src="article.urlToImage"
+      :src="article.urlToImage || ''"
       height="200px"
     ></v-img>
 
