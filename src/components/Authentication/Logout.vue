@@ -1,12 +1,11 @@
 <template>
-  <h1>Logout</h1>
+  <span></span>
 </template>
-
-
 <script>
 export default {
-  name: 'Register',
-  data () {
+  async created () {
+    await this.$store.dispatch('logoutUser')
+    this.$router.push({ name: 'login' }).catch(() => {})
   }
 }
 </script>

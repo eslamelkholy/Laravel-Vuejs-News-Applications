@@ -1,7 +1,7 @@
 <template>
 <div>
-  <top-news></top-news>
-  <more-news></more-news>
+  <top-news :News="News"></top-news>
+  <more-news :News="News"></more-news>
   <!-- SnackBar -->
   <div v-if="dataSucessMsg">
     <snack-bar :snackbar="snackbar" :dataSucessMsg="dataSucessMsg"></snack-bar>
@@ -28,6 +28,13 @@ export default {
   },
   created () {
     if (this.dataSucessMsg) this.snackbar = true
+    this.$store.dispatch('getNews')
+  },
+  computed: {
+    News () {
+      console.log(this.$store.getters.getNews)
+      return this.$store.getters.getNews
+    }
   }
 }
 </script>

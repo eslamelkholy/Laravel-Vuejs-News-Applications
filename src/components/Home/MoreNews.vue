@@ -60,7 +60,7 @@
 
 <script>
   export default {
-  name: 'more-news',
+    name: 'more-news',
     data: () => ({
       show: false,
     }),

@@ -1,23 +1,23 @@
 <template>
-  <v-card color="blue lighten-2">
-    <v-card-title class="text-center justify-center py-6">
-      <h1 class="font-weight-bold display-2 white--text">Top News</h1>
-    </v-card-title>
+<div>
+  <h1>Daily News</h1>
+  <v-card>
     <v-tabs
       v-model="tab"
-      background-color="primary"
-      dark
+    background-color="gray"
+    light
+    class="HeadersTabs"
     >
       <v-tab
-        v-for="(item, index) in items"
+        v-for="(article, index) in News"
         :key="index"
       >
-        {{ item.tab }}
+        {{ article.title }}
       </v-tab>
     </v-tabs>
-    <v-tabs-items v-model="tab">
+    <v-tabs-items class="arabicContainer" v-model="tab">
       <v-tab-item
-        v-for="(item, index) in items"
+        v-for="(article, index) in News"
         :key="index"
       >
         <v-card
@@ -25,14 +25,13 @@
     class="mx-auto"
   >
     <v-img
-      src="https://cdn.vuetifyjs.com/images/cards/mountain.jpg"
-      height="194"
+      :src="article.urlToImage"
+      height="304"
+      width="100%"
     ></v-img>
-  <v-card-title>
-      Top western road trips
-    </v-card-title>
     <v-card-text>
-      Visit ten places on our planet that are undergoing the biggest changes today.
+      <h2 class="marginTopParagraph">{{ article.title }}</h2>
+      <p class="marginTopParagraph">{{ article.description }}</p>
     </v-card-text>
 
     <v-card-actions>
@@ -60,6 +59,7 @@
       </v-tab-item>
     </v-tabs-items>
   </v-card>
+</div>
 </template>
 
 <script>
@@ -82,5 +82,26 @@ export default {
       ],
     }
   },
+  props: {
+    News: {
+      type: Array,
+      required: true
+    }
+  }
 }
 </script>
+
+<style>
+.arabicContainer{
+  text-align: right !important;
+}
+.marginTopParagraph{
+  margin-top: 10px;
+  font-size: 20px;
+  color: black;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.HeadersTabs{
+  height: 89px;
+}
+</style>

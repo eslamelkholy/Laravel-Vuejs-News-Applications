@@ -5,20 +5,8 @@
       app
     >
       <v-list dense>
-        <template v-for="item in items">
-          <v-row
-            v-if="item.heading"
-            :key="item.heading"
-            align="center"
-          >
-            <v-col cols="6">
-              <v-subheader v-if="item.heading">
-                {{ item.heading }}
-              </v-subheader>
-            </v-col>
-          </v-row>
-          <v-list-item
-            v-else
+        <template v-for="item in items" >
+          <v-list-item 
             :key="item.text"
             link
             @click.stop="RouteUser(item.routeName)"
@@ -42,12 +30,12 @@ export default {
   name: 'side-bar',
   data: () => ({
     items: [
-      { icon: 'mdi-home', text: 'Home', routeName: 'home-page' },
-      { icon: 'mdi-star', text: 'Favorites', routeName: 'favorites' },
+      { icon: 'mdi-home', text: 'Home', routeName: 'home-page', authenticated: true },
+      { icon: 'mdi-star', text: 'Favorites', routeName: 'favorites', authenticated: true  },
       { icon: 'mdi-help', text: 'About', routeName: 'about' },
-      { icon: 'mdi-login', text: 'Login', routeName: 'login' },
-      { icon: 'mdi-account-circle', text: 'Register', routeName: 'register' },
-      { icon: 'mdi-lock-open', text: 'Logout', routeName: 'logout' },
+      { icon: 'mdi-login', text: 'Login', routeName: 'login', authenticated: false },
+      { icon: 'mdi-account-circle', text: 'Register', routeName: 'register', authenticated: false },
+      { icon: 'mdi-lock-open', text: 'Logout', routeName: 'logout', authenticated: true },
     ]
   }),
   props: {
@@ -59,6 +47,11 @@ export default {
   methods: {
     RouteUser (routeName) {
       this.$router.push({ name: routeName }).catch(() => {})
+    }
+  },
+  computed: {
+    loggedIn () {
+      return this.$store.getters.loggedIn
     }
   }
 }

@@ -26,7 +26,7 @@ const actions = {
   },
   logoutUser: async (context) => {
     if (context.getters.loggedIn) {
-      await Axios.post('/api/logout')
+      await Axios.post('/api/auth/logout')
       AuthService.removeToken(context)
     }
   },
