@@ -83,9 +83,6 @@ export default {
 }
 </script>
 
-<style scoped>
-.loginForm{
-  margin-top: -200px;
-  width: 100%;
-}
+<style lang="scss">
+@import url('./styles/Login.scss');
 </style>

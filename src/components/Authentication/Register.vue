@@ -107,13 +107,6 @@ export default {
 }
 </script>
 
-<style scoped>
-.loginForm{
-  margin-top: -200px;
-  width: 100%;
-}
-#spanLogin{
-      margin-right: 8px;
-    color: blue;
-}
+<style lang="scss">
+@import url('./styles/Register.scss');
 </style>

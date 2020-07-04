@@ -3,6 +3,7 @@
     <v-btn 
     v-if="getUserFavoritesId.includes(articleId)" 
     color="primary"
+    
     @click.stop="removeFromFavorites"
     >
     UnFavorite

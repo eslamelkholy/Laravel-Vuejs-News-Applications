@@ -21,12 +21,9 @@
       {{ article.description }}
     </v-card-subtitle>
     </div>
-<v-divider></v-divider>
-    <v-card-actions class="cardActions">
-      <v-btn text>Favorite</v-btn>
-      <v-btn color="purple" text>See More </v-btn>
-      <v-spacer></v-spacer>
-    </v-card-actions>
+    <v-divider></v-divider>
+    <!-- Add & Remove Favorites Component -->
+    <add-remove-favorites :getUserFavoritesId="getUserFavoritesId" :articleId="article.id"></add-remove-favorites>
         </v-card>
       </v-col>
     </v-row>
@@ -34,8 +31,13 @@
 </template>
 
 <script>
+import AddRemoveFavorites from '../Favorites/AddRemoveFavorites'
+
 export default {
   name: 'more-news',
+  components: {
+    AddRemoveFavorites
+  },
   data: () => ({
     show: false,
   }),
@@ -44,21 +46,15 @@ export default {
       type: Array,
       required: true
     }
+  },
+  computed: {
+    getUserFavoritesId () {
+      return this.$store.getters.getUserFavoritesId
+    }
   }
 }
 </script>
 
 <style lang="scss">
-.moreNewsContainer{
-  margin-top: 30px;
-}
-.cardContainer{
-  height: 100%;
-}
-.cardActions{
-}
-.cardTitle{
-  height: 141px;
-    text-align: right;
-}
+@import url('./styles/MoreNews.scss');
 </style>

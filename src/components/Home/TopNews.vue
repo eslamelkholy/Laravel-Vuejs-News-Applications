@@ -71,22 +71,6 @@ export default {
 }
 </script>
 
-<style>
-.arabicContainer{
-  text-align: right !important;
-}
-.marginTopParagraph{
-  margin-top: 10px;
-  font-size: 20px;
-  color: black;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-.HeadersTabs{
-  font-family: tahoma;
-}
-.subHeadersTabs{
-  font-size: 17px;
-  color: white !important;
-  font-weight: bold;
-}
+<style lang="scss">
+@import url('./styles/TopNews.scss');
 </style>
