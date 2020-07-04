@@ -1,11 +1,24 @@
 <template>
   <v-card-actions >
-    <v-btn
-      color="primary"
+    <v-btn 
+    v-if="getUserFavoritesId.includes(articleId)" 
+    color="primary"
+    @click.stop="removeFromFavorites"
     >
-      Favorite
+    UnFavorite
+    <v-icon right size="25" color="pink">mdi-star</v-icon>
+    </v-btn>
+
+    <v-btn 
+    v-else 
+    color="primary"
+    @click.stop="addToFavorites"
+    >
+    Favorite
     <v-icon right size="25" color="white">mdi-star</v-icon>
     </v-btn>
+
+
     <v-btn
       color="secondary"
     >
@@ -17,7 +30,25 @@
 
 <script>
 export default {
-  name: 'add-remove-favorites'
+  name: 'add-remove-favorites',
+  props: {
+    articleId: {
+      type: Number,
+      required: true
+    },
+    getUserFavoritesId: {
+      type: Array,
+      required: true
+    }
+  },
+  methods: {
+    addToFavorites () {
+      this.$store.dispatch('addToFavorites', this.articleId)
+    },
+    removeFromFavorites () {
+      this.$store.dispatch('removeFromFavorites', this.articleId)
+    }
+  }
   
 }
 </script>

@@ -27,7 +27,7 @@
     class="mx-auto"
   >
     <v-img
-      :src="article.urlToImage"
+      :src="article.urlToImage || ''"
       height="284"
       width="100%"
     ></v-img>
@@ -36,7 +36,7 @@
       <p class="marginTopParagraph">{{ article.description }}</p>
     </v-card-text>
     <!-- Add & Remove Favorites Component -->
-    <add-remove-favorites></add-remove-favorites>
+    <add-remove-favorites :getUserFavoritesId="getUserFavoritesId" :articleId="article.id"></add-remove-favorites>
   </v-card>
       </v-tab-item>
     </v-tabs-items>
@@ -61,6 +61,11 @@ export default {
     News: {
       type: Array,
       required: true
+    }
+  },
+  computed: {
+    getUserFavoritesId () {
+      return this.$store.getters.getUserFavoritesId
     }
   }
 }

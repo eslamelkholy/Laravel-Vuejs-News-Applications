@@ -31,6 +31,7 @@ export default {
   created () {
     if (this.dataSucessMsg) this.snackbar = true
     this.$store.dispatch('getNews')
+    this.$store.dispatch('getFavorites')
   },
   computed: {
     News () {
