@@ -7,6 +7,7 @@
       <v-list dense>
         <template v-for="item in items" >
           <v-list-item 
+          v-if="item.authenticated === loggedIn"
             :key="item.text"
             link
             @click.stop="RouteUser(item.routeName)"
@@ -34,7 +35,7 @@ export default {
       { icon: 'mdi-heart', text: 'Favorites', routeName: 'favorites', authenticated: true  },
       { icon: 'mdi-help', text: 'About', routeName: 'about' },
       { icon: 'mdi-login', text: 'Login', routeName: 'login', authenticated: false },
-      { icon: 'mdi-account-circle', text: 'Register', routeName: 'register', authenticated: false },
+      { icon: 'mdi-account-circle', text: 'Register', routeName: 'register', authenticated: true },
       { icon: 'mdi-lock-open', text: 'Logout', routeName: 'logout', authenticated: true },
     ]
   }),
