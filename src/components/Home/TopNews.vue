@@ -35,28 +35,8 @@
       <h2 class="marginTopParagraph">{{ article.title }}</h2>
       <p class="marginTopParagraph">{{ article.description }}</p>
     </v-card-text>
-
-    <v-card-actions >
-      <v-btn
-        text
-        color="deep-purple accent-4"
-      >
-        Favorite
-      </v-btn>
-      <v-btn
-        text
-        color="deep-purple accent-4"
-      >
-        See More
-      </v-btn>
-      <v-spacer></v-spacer>
-      <v-btn icon>
-        <v-icon>mdi-heart</v-icon>
-      </v-btn>
-      <v-btn icon>
-        <v-icon>mdi-share-variant</v-icon>
-      </v-btn>
-    </v-card-actions>
+    <!-- Add & Remove Favorites Component -->
+    <add-remove-favorites></add-remove-favorites>
   </v-card>
       </v-tab-item>
     </v-tabs-items>
@@ -65,8 +45,13 @@
 </template>
 
 <script>
+import AddRemoveFavorites from '../Favorites/AddRemoveFavorites'
+
 export default {
   name: 'top-news',
+  components: {
+    AddRemoveFavorites
+  },
   data () {
     return {
       tab: null

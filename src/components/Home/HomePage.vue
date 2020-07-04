@@ -1,6 +1,8 @@
 <template>
 <div>
+  <!-- Top Headlines Component  -->
   <top-news :News="News"></top-news>
+  <!-- More News For Users -->
   <more-news :News="News"></more-news>
   <!-- SnackBar -->
   <div v-if="dataSucessMsg">
