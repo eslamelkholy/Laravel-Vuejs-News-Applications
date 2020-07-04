@@ -5,6 +5,7 @@ import Register from '../components/Authentication/Register'
 import Logout from '../components/Authentication/Logout'
 import HomePage from '../components/Home/HomePage'
 import Favorites from '../components/Favorites/Favorites'
+import NewsDetails from '../components/Home/NewsDetails'
 import routeGuard from './RouteGuard'
 
 Vue.use(Router)
@@ -16,6 +17,15 @@ const router =  new Router({
       path: '/',
       component: HomePage,
       name: 'home-page',
+      meta: {
+        requiresAuth: true
+      },
+      props: true
+    },
+    {
+      path: '/news/:id',
+      component: NewsDetails,
+      name: 'news-details',
       meta: {
         requiresAuth: true
       },

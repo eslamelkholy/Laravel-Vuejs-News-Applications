@@ -3,55 +3,30 @@
     <h2>Explore More News</h2>
     <v-row>
       <v-col
-        v-for="n in 8"
-        :key="n"
+        v-for="(article, index) in News"
+        :key="index"
         cols="6"
       >
         <v-card
-          class="pa-2"
+          class="pa-2 cardContainer"
         >
           <v-img
-      src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
+      :src="article.urlToImage"
       height="200px"
     ></v-img>
 
-    <v-card-title>
-      Top western road trips
-    </v-card-title>
-
+    <div class="cardTitle">
     <v-card-subtitle>
-      1,000 miles of wonder
+      <h3 class="marginTopParagraph">{{ article.title }}</h3>
+      {{ article.description }}
     </v-card-subtitle>
-
-    <v-card-actions>
+    </div>
+<v-divider></v-divider>
+    <v-card-actions class="cardActions">
       <v-btn text>Favorite</v-btn>
-
-      <v-btn
-        color="purple"
-        text
-      >
-        See More
-      </v-btn>
-
+      <v-btn color="purple" text>See More </v-btn>
       <v-spacer></v-spacer>
-
-      <v-btn
-        icon
-        @click="show = !show"
-      >
-        <v-icon>{{ show ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
-      </v-btn>
     </v-card-actions>
-
-    <v-expand-transition>
-      <div v-show="show">
-        <v-divider></v-divider>
-
-        <v-card-text>
-          I'm a thing. But, like most politicians, he promised more than he could deliver. You won't have time for sleeping, soldier, not with all the bed making you'll be doing. Then we'll go with that data file! Hey, you add a one and two zeros to that or we walk! You're going to do his laundry? I've got to find a way to escape.
-        </v-card-text>
-      </div>
-    </v-expand-transition>
         </v-card>
       </v-col>
     </v-row>
@@ -59,16 +34,31 @@
 </template>
 
 <script>
-  export default {
-    name: 'more-news',
-    data: () => ({
-      show: false,
-    }),
+export default {
+  name: 'more-news',
+  data: () => ({
+    show: false,
+  }),
+  props: {
+    News: {
+      type: Array,
+      required: true
+    }
   }
+}
 </script>
 
 <style lang="scss">
 .moreNewsContainer{
   margin-top: 30px;
+}
+.cardContainer{
+  height: 100%;
+}
+.cardActions{
+}
+.cardTitle{
+  height: 141px;
+    text-align: right;
 }
 </style>

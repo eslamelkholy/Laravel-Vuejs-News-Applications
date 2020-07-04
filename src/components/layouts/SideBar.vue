@@ -31,7 +31,7 @@ export default {
   data: () => ({
     items: [
       { icon: 'mdi-home', text: 'Home', routeName: 'home-page', authenticated: true },
-      { icon: 'mdi-star', text: 'Favorites', routeName: 'favorites', authenticated: true  },
+      { icon: 'mdi-heart', text: 'Favorites', routeName: 'favorites', authenticated: true  },
       { icon: 'mdi-help', text: 'About', routeName: 'about' },
       { icon: 'mdi-login', text: 'Login', routeName: 'login', authenticated: false },
       { icon: 'mdi-account-circle', text: 'Register', routeName: 'register', authenticated: false },
